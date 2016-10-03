@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- The ng-app directive tells AngularJS that this is the root element of the AngularJS application. All AngularJS applications must have a root element. You can only have one ng-app directive in your HTML document. If more than one ng-app directive appears, the first appearance will be used. -->
+<html ng-app="myApp">
+
+<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<head>
+<title>San Diego Top Sports Angular</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+
+<!-- The ng-Controller directive attaches a controller class to the view. This is a key aspect of how angular supports the principles behind the Model-View-Controller design pattern.
+The ng-controller directives defines the application controller-->
+<body ng-controller="MainController">
+<h1 align="center">San Diego Top Spots Angular</h1>
+<div class="container">
+<!-- <input type="text" ng-model="nameS"> -->	
+	<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- The ng-repeat directive repeats a set of HTML from a collection, a given number of times. In this case my data of SDtopspots which include the name of the location, description, and location(coordinates) -->
+				<tr ng-repeat="data in topspots">
+					<td> {{data.name}}</td>
+					<td> {{data.description}}</td>
+					<!-- button-once you click it will forward user to google maps wth coordinates of location-->
+					<td><a class="btn btn-primary" target="_blank" href="https://www.google.com/maps?q= {{data.location[0]}}, {{data.location[1]}}">Open in Google Maps</a></td>
+				</tr>
+			</tbody>
+	</table>
+</div>
+
+<!-- <script src="bower_components/angular/angular.min.js"></script> -->
+<script src="index.js"></script>
+
+</body>
+</html>
